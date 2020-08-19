@@ -4,12 +4,12 @@
     "allowSyntheticDefaultImports": true,
     "noUnusedParameters": false,
     "noUnusedLocals": false,
-    "lib": ["ES2018"],
+    "lib": ["es6"],
     "module": "commonjs",
     "target": "es6",
 
     "moduleResolution": "node",
-    "sourceMap": true,
+
     "outDir": "./dist",
     "rootDir": "./src"
   }
