@@ -1,0 +1,31 @@
+{
+  "name": "corder_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "server": "nodemon src/index.ts",
+    "build": "tsc -p"
+  },
+  "author": "Nathaniel Richards <nathaniel-richards@lambdastudents.com> (https://nathanielrichards.dev)",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^2.16.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.1.0",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.7",
+    "@types/express": "^4.17.7",
+    "@types/helmet": "0.0.47",
+    "@types/node": "^14.6.0",
+    "nodemon": "^2.0.4",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  }
+}
