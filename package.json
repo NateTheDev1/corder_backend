@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "tsc && node dist/index.js",
     "server": "nodemon src/index.ts",
     "build": "tsc"
   },
+  "heroku-run-build-script": false,
   "author": "Nathaniel Richards <nathaniel-richards@lambdastudents.com> (https://nathanielrichards.dev)",
   "license": "ISC",
   "dependencies": {
