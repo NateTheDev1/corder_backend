@@ -20,6 +20,10 @@ const { ApolloServer } = require("apollo-server-express");
 const gqlServer = new ApolloServer({ typeDefs, resolvers });
 gqlServer.applyMiddleware({ app: server });
 
+server.get("/", (req: Request, res: any) => {
+  res.status(200).json({ message: "Welcome to the corder API" });
+});
+
 server.listen(PORT, () => {
   console.info(`🚀 Server is running in ${ENV} on port ${PORT}`);
 });
