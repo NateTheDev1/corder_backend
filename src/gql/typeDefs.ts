@@ -10,18 +10,19 @@ const typeDefs = gql`
     id: ID!
     category: String!
     title: String!
-    # nutrition: Nutrition!
+    nutrition: Nutrition!
     image: String!
     price: Float!
   }
 
   type Nutrition {
-    id: ID!
-    calories: Int!
-    fat: Int!
-    cholesterol: Int!
-    protein: Int!
-    caffeine: Int!
+    id: ID
+    product_id: Int
+    calories: Int
+    fat: Int
+    cholesterol: Int
+    protein: Int
+    caffeine: Int
   }
 `;
 
