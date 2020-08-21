@@ -43,7 +43,7 @@ var PORT = process.env.PORT;
 var cors = require("cors");
 var express = require("express");
 var server = express();
-server.use(cors());
+server.use(cors(), express.json());
 //APOLLO
 var typeDefs = require("./gql/typeDefs").typeDefs;
 var resolvers = require("./gql/resolvers").resolvers;
@@ -60,6 +60,7 @@ server.post("/api/charge", function (req, res) { return __awaiter(void 0, void 0
         switch (_b.label) {
             case 0:
                 _a = req.body, id = _a.id, amount = _a.amount, title = _a.title;
+                console.log(id, amount, title);
                 _b.label = 1;
             case 1:
                 _b.trys.push([1, 3, , 4]);
