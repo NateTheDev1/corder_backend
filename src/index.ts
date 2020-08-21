@@ -10,7 +10,7 @@ const cors = require("cors");
 const express = require("express");
 const server = express();
 
-server.use(cors());
+server.use(cors(), express.json());
 
 //APOLLO
 const { typeDefs } = require("./gql/typeDefs");
@@ -28,6 +28,8 @@ const stripe = require("stripe")(process.env.STRIPE_KEY);
 
 server.post("/api/charge", async (req: any, res: any) => {
   const { id, amount, title } = req.body;
+
+  console.log(id, amount, title);
 
   try {
     await stripe.paymentIntents.create({
