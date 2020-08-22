@@ -5,6 +5,7 @@ const typeDefs = gql`
     products: [Product]
     product(id: ID!): Product
     user(id: ID!): User
+    orders(customer_id: ID!): [Order]
   }
 
   type Product {

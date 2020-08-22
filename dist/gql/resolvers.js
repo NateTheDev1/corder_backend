@@ -96,6 +96,22 @@ var resolvers = {
                 });
             });
         },
+        orders: function (_, _a) {
+            var customer_id = _a.customer_id;
+            return __awaiter(void 0, void 0, void 0, function () {
+                var orders;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0: return [4 /*yield*/, ordersdb
+                                .query()
+                                .where("customer_id", "=", customer_id)];
+                        case 1:
+                            orders = _b.sent();
+                            return [2 /*return*/, orders];
+                    }
+                });
+            });
+        },
     },
     Mutation: {
         addUser: function (_, _a) {

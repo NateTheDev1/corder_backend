@@ -25,6 +25,12 @@ const resolvers = {
       console.log(user);
       return user;
     },
+    orders: async (_: any, { customer_id }: { customer_id: string }) => {
+      const orders = await ordersdb
+        .query()
+        .where("customer_id", "=", customer_id);
+      return orders;
+    },
   },
 
   Mutation: {
