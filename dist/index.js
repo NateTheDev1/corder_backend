@@ -54,16 +54,17 @@ server.get("/", function (req, res) {
     res.status(200).json({ message: "Welcome to the corder API" });
 });
 var stripe = require("stripe")(process.env.STRIPE_KEY);
+var orderdb = require("../database/Models/Order");
 server.post("/api/charge", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, id, amount, title, erorr_1;
+    var _a, id, amount, title, customerId, total, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _a = req.body, id = _a.id, amount = _a.amount, title = _a.title;
+                _a = req.body, id = _a.id, amount = _a.amount, title = _a.title, customerId = _a.customerId, total = _a.total;
                 console.log(id, amount, title);
                 _b.label = 1;
             case 1:
-                _b.trys.push([1, 3, , 4]);
+                _b.trys.push([1, 4, , 5]);
                 return [4 /*yield*/, stripe.paymentIntents.create({
                         amount: amount,
                         description: title,
@@ -73,11 +74,20 @@ server.post("/api/charge", function (req, res) { return __awaiter(void 0, void 0
                     })];
             case 2:
                 _b.sent();
-                return [2 /*return*/, res.status(200).json({ confirmation: "1243hjbhf34" })];
+                return [4 /*yield*/, orderdb.query().insert({
+                        order_info: title,
+                        customer_id: customerId,
+                        total: parseFloat(total),
+                        date: new Date(),
+                    })];
             case 3:
-                erorr_1 = _b.sent();
+                _b.sent();
+                return [2 /*return*/, res.status(200).json({ confirmation: "1243hjbhf34" })];
+            case 4:
+                error_1 = _b.sent();
+                console.log(error_1);
                 return [2 /*return*/, res.status(400).json({ error: "Unable to make purchase" })];
-            case 4: return [2 /*return*/];
+            case 5: return [2 /*return*/];
         }
     });
 }); });
