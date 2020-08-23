@@ -45,7 +45,7 @@ server.post("/api/charge", async (req: any, res: any) => {
       order_info: title,
       customer_id: customerId,
       total: parseFloat(total),
-      date: new Date(),
+      date: Date.now(),
     });
 
     return res.status(200).json({ confirmation: "1243hjbhf34" });

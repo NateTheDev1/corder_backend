@@ -78,7 +78,7 @@ server.post("/api/charge", function (req, res) { return __awaiter(void 0, void 0
                         order_info: title,
                         customer_id: customerId,
                         total: parseFloat(total),
-                        date: new Date(),
+                        date: Date.now(),
                     })];
             case 3:
                 _b.sent();
